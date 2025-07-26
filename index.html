@@ -2,26 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Apple Pay</title>
+  <title>Apple Pay Prank</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     html, body {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        background-color: #000;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        color: white;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: #000;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: white;
+      box-sizing: border-box;
     }
-
     body {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 100vh;
-        box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
     }
-
 
     .card {
       background: #1c1c1e;
@@ -43,7 +41,6 @@
       font-weight: 600;
       margin-bottom: 6px;
     }
-
     .subtext {
       font-size: 14px;
       color: #aaa;
@@ -59,8 +56,8 @@
       border-radius: 14px;
       cursor: pointer;
       transition: background 0.3s ease;
+      display: inline-block;
     }
-
     .btn:hover {
       background: #005fce;
     }
@@ -72,19 +69,16 @@
       margin-top: 20px;
       animation: fadeInUp 0.5s ease forwards;
     }
-
     .check {
       font-size: 48px;
       color: #32d74b;
       margin-bottom: 12px;
     }
-
     .amount {
       font-size: 26px;
       font-weight: 600;
       margin-bottom: 4px;
     }
-
     .from {
       font-size: 14px;
       color: #aaa;
@@ -104,43 +98,41 @@
 </head>
 <body>
 
-<div class="card">
-  <!-- Apple logo SVG -->
-  <svg class="apple-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 17" fill="white">
-    <path d="M11.67 8.75c.01 2.56 2.23 3.41 2.24 3.42-.02.06-.35 1.22-1.16 2.42-.7 1.02-1.43 2.03-2.58 2.06-1.13.02-1.5-.67-2.8-.67s-1.72.65-2.8.7c-1.12.05-1.97-1.1-2.68-2.12-1.45-2.11-2.56-5.97-1.07-8.6.74-1.28 2.07-2.1 3.52-2.12 1.1-.02 2.13.75 2.8.75.67 0 1.98-.92 3.34-.78.57.02 2.18.23 3.22 1.77-.08.05-1.92 1.12-1.91 3.37zM9.43 2.65c.6-.72 1.01-1.73.89-2.75-.86.03-1.89.57-2.51 1.29-.55.63-1.03 1.64-.9 2.6.95.08 1.92-.48 2.52-1.14z"/>
-  </svg>
+  <div class="card">
+    <svg class="apple-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 17" fill="white">
+      <path d="M11.67 8.75c.01 2.56 2.23 3.41 2.24 3.42-.02.06-.35 1.22-1.16 2.42-.7 1.02-1.43 2.03-2.58 2.06-1.13.02-1.5-.67-2.8-.67s-1.72.65-2.8.7c-1.12.05-1.97-1.1-2.68-2.12-1.45-2.11-2.56-5.97-1.07-8.6.74-1.28 2.07-2.1 3.52-2.12 1.1-.02 2.13.75 2.8.75.67 0 1.98-.92 3.34-.78.57.02 2.18.23 3.22 1.77-.08.05-1.92 1.12-1.91 3.37zM9.43 2.65c.6-.72 1.01-1.73.89-2.75-.86.03-1.89.57-2.51 1.29-.55.63-1.03 1.64-.9 2.6.95.08 1.92-.48 2.52-1.14z"/>
+    </svg>
 
-  <div class="title">Apple Pay</div>
-  <div class="subtext">Ready to receive payment</div>
+    <div class="title">Apple Pay</div>
+    <div class="subtext">Ready to receive payment</div>
 
-  <button class="btn" onclick="receivePayment()">Receive Payment</button>
+    <button class="btn" id="payBtn" onclick="receivePayment()">Receive Payment</button>
 
-  <div class="success" id="confirmation">
-    <div class="check">✅</div>
-    <div class="amount">$89.00</div>
-    <div class="from">from wallet@icloud.com</div>
+    <div class="success" id="confirmation">
+      <div class="check">✅</div>
+      <div class="amount">$89.00</div>
+      <div class="from">from wallet@icloud.com</div>
+    </div>
   </div>
-</div>
 
-<audio id="chime" src="apple-pay.mp3" preload="auto"></audio>
+  <audio id="chime" src="apple-pay.mp3" preload="auto"></audio>
 
-<script>
-  function receivePayment() {
-    const audio = document.getElementById("chime");
-    const confirmation = document.getElementById("confirmation");
-    const button = document.getElementById("payBtn");
+  <script>
+    function receivePayment() {
+      const audio = document.getElementById("chime");
+      const confirmation = document.getElementById("confirmation");
+      const button = document.getElementById("payBtn");
 
-    audio.play();
-    confirmation.style.display = "flex";
-    button.style.display = "none";
+      audio.play();
+      confirmation.style.display = "flex";
+      button.style.display = "none";
 
-    setTimeout(() => {
-      confirmation.style.display = "none";
-      button.style.display = "inline-block";
-    }, 20000);
-  }
-</script>
-
+      setTimeout(() => {
+        confirmation.style.display = "none";
+        button.style.display = "inline-block";
+      }, 10000);
+    }
+  </script>
 
 </body>
 </html>

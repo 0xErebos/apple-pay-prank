@@ -128,11 +128,19 @@
   function receivePayment() {
     const audio = document.getElementById("chime");
     const confirmation = document.getElementById("confirmation");
+    const button = document.getElementById("payBtn");
 
     audio.play();
     confirmation.style.display = "flex";
+    button.style.display = "none";
+
+    setTimeout(() => {
+      confirmation.style.display = "none";
+      button.style.display = "inline-block";
+    }, 20000);
   }
 </script>
+
 
 </body>
 </html>
